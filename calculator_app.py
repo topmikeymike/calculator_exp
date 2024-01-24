@@ -14,7 +14,7 @@ def header():
 def main_content():
 
     # Load data from CSV files
-    file_path_negeri_daerah = r"C:\Users\michael.igo\Documents\Coding\calculator_exp\data\Negeri_Daerah.csv"
+    file_path_negeri_daerah = "data/Negeri_Daerah.csv" 
     # file_path_strata = r"C:\Users\michael.igo\Documents\Coding\calculator_exp\data\LU_STRATA.csv"
     # data_strata = load_data(file_path_strata)
     data_negeri_daerah = load_data(file_path_negeri_daerah)
