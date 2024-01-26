@@ -141,7 +141,7 @@ def main_content():
     coefficient_oku = item_coeff_dict.get('Bil OKU', default_feature)
     coefficient_hh_income = item_coeff_dict.get('HH_Income', default_feature)
     constant_term = item_coeff_dict.get('Constant', default_feature)
-    st.write("Coefficient CONSTANT", constant_term)
+    
 
     
    # Get user input for an integer
@@ -179,7 +179,10 @@ def main_content():
         round(coefficient_bil_ir, 12)+ round(coefficient_oku, 12) + round(coefficient_warga_emas, 12) + round(coefficient_kanak2, 12) +
         round(coefficient_hh_income, 12)
     )
-
+    
+    # Display the Coefficient CONSTANT
+    st.write("Coefficient CONSTANT", constant_term)
+    
     # Display the calculated regression formula
     st.write("Sum Coefficient:", round(sum_coefficient, 12))
     
