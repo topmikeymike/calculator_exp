@@ -69,7 +69,7 @@ def main_content():
     st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
     
     # Display the options in a single-select dropdown for Jantina
-    selected_jantina = st.selectbox("Select Jantina", ["Lelaki"] + list(data_negeri_daerah['JANTINA'].dropna().unique()))
+    selected_jantina = st.selectbox("Jantina KIR(Ketua Isi Rumah)", ["Lelaki"] + list(data_negeri_daerah['JANTINA'].dropna().unique()))
     
      # Handle Bandar as a special case
     if selected_jantina == "Lelaki":
@@ -83,7 +83,7 @@ def main_content():
     st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
     
     # Display the options in a single-select dropdown for Etnik
-    selected_etnik = st.selectbox("Select Etnik", ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
+    selected_etnik = st.selectbox("Etnik KIR(Ketua Isi Rumah)", ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
     
     # Handle Bandar as a special case
     if selected_etnik == "Melayu":
@@ -181,16 +181,16 @@ def main_content():
     )
     
     # Display the Coefficient CONSTANT
-    st.write("Coefficient CONSTANT", constant_term)
+    st.write("Coefficient Constant", constant_term)
     
     # Display the calculated regression formula
-    st.write("Sum Coefficient:", round(sum_coefficient, 12))
+    st.write("Sum of Coefficient:", round(sum_coefficient, 12))
     
     # Exponentiate the coefficient
     exp_selected_coefficient = np.exp(round(sum_coefficient, 12))
 
     # Display the exponentiated coefficient for the selected_daerah
-    st.write(f"Predicted Expenditure (RM): {round(exp_selected_coefficient, 2)}")
+    st.write(f"Predicted Expenditure for Household (RM): {round(exp_selected_coefficient, 2)}")
     
     # Calculate e raised to the power of sum_coefficient
     result = math.exp(sum_coefficient)
