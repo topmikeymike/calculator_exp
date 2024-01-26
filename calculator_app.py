@@ -202,6 +202,7 @@ def footer():
         """
         <div style="text-align:center; padding: 10px;">
             <p style="font-size: 12px; color: grey;">Copyright © 2024 Michael/Khairul. All rights reserved.</p>
+            <p style="font-size: 12px; color: grey;">bank in dulu</p>
         </div>
         """,
         unsafe_allow_html=True
