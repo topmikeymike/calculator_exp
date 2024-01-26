@@ -193,7 +193,7 @@ def main_content():
     result = math.exp(sum_coefficient)
 
     # Display the result
-    st.write(f"e^{sum_coefficient} = {result}")
+    # st.write(f"e^{sum_coefficient} = {result}")
 
     
 def footer():
