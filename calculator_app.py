@@ -16,8 +16,8 @@ def header():
 def main_content():
 
     # Load data from CSV files
-    file_path_negeri_daerah = r"C:\Users\michael.igo\Documents\Coding\calculator_exp\data\Negeri_Daerah.csv"
-    file_model = r"C:\Users\michael.igo\Documents\Coding\calculator_exp\data\modelv1.csv"
+    file_path_negeri_daerah = r"data\Negeri_Daerah.csv"
+    file_model = r"data\modelv1.csv"
     # file_path_strata = r"C:\Users\michael.igo\Documents\Coding\calculator_exp\data\LU_STRATA.csv"
     # data_strata = load_data(file_path_strata)
     data_negeri_daerah = load_data(file_path_negeri_daerah)
@@ -197,11 +197,11 @@ def main_content():
 
     
 def footer():
-    # Footer with logo
+    # Footer with copyright
     st.markdown(
         """
         <div style="text-align:center; padding: 10px;">
-            <img src="images\logo2.png" alt="Your Logo" width="100">
+            <p style="font-size: 12px; color: grey;">Copyright © 2024 Michael/Khairul. All rights reserved.</p>
         </div>
         """,
         unsafe_allow_html=True
