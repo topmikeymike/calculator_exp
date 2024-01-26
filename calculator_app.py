@@ -187,7 +187,7 @@ def main_content():
     exp_selected_coefficient = np.exp(round(sum_coefficient, 12))
 
     # Display the exponentiated coefficient for the selected_daerah
-    st.write(f"Predicted Expenditure (RM): {round(exp_selected_coefficient, 12)}")
+    st.write(f"Predicted Expenditure (RM): {round(exp_selected_coefficient, 2)}")
     
     # Calculate e raised to the power of sum_coefficient
     result = math.exp(sum_coefficient)
