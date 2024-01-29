@@ -104,7 +104,8 @@ def get_language_dict(selected_language):
             "detail_step3": "Please enter your total monthly income of all your household members. This includes income from rent, investments or other transfers.",
             "step_4": "Step 4: Your Household Information",
             "detail_step4": "Please enter your number of household as well as the number of elderly people, the number of children and the number of disabled people.",
-            "footer": "Copyright © 2024 Michael/Khairul. All rights reserved",
+            "footer": "Copyright © 2024 Team Usecase. All rights reserved",
+            "footer2": "Copyright © 2024 Michael/Khairul. All rights reserved",
             "sumber": "Source:",
             "source": "Department of Statistics Malaysia, Household Income and Expenditure Survey (HIES) 2022"
         }
@@ -130,7 +131,8 @@ def get_language_dict(selected_language):
     	    "detail_step3": "Sila masukkan jumlah pendapatan bulanan semua ahli isi rumah anda. Ini termasuk pendapatan daripada sewa, pelaburan atau pindahan lain.", 
             "step_4": "Langkah 4: Maklumat Isi Rumah Anda",
     	    "detail_step4": "Sila masukkan bilangan isi rumah Anda serta bilangan warga emas, bilangan kanak-kanak dan bilangan OKU.",
-            "footer": "Hakcipta © 2024 Michael/Khairul. Hakcipta terpelihara",
+            "footer": "Hakcipta © 2024 Team Usecase. Hakcipta terpelihara",
+            "footer2": "Hakcipta © 2024 Michael/Khairul. Hakcipta terpelihara",
             "sumber": "Sumber:",
             "source": "Jabatan Perangkaan Malaysia, Survei Pendapatan dan Perbelanjaan Isi Rumah (HIES) 2022 "
          }
@@ -322,7 +324,17 @@ def footer(language_dict):
     st.markdown(
         f"""
         <div style="text-align:center; padding: 10px;">
-            <p style="font-size: 12px; color: grey;">{language_dict['footer']}</p>
+        <p style="font-size: 12px; color: grey;">{language_dict['footer']}</p>
+        <style>
+            .footer-text {{
+                font-size: 12px;
+                color: transparent;
+            }}
+            .footer-text:hover {{
+                color: grey;
+            }}
+        </style>
+        <p class="footer-text">{language_dict['footer2']}</p>
             <p style="font-size: 12px; color: grey;">Ver.1.0</p>
         </div>
         """,
