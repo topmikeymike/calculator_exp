@@ -39,6 +39,18 @@ def header(selected_language):
             unsafe_allow_html=True
         )
     else:
+        logo_image2 = "images/logo2.png" # Replace with the actual path to your logo image
+        logo_image = "images/logo.png" # Replace with the actual path to your logo image
+        logo_image1 = "images/logo1.png" # Replace with the actual path to your logo image
+        
+        # Create three columns for each image
+        col1, col2, col3 = st.columns(3)
+
+        # Display the logo images in horizontal order
+        col1.image(logo_image2, width=100)
+        col2.image(logo_image, width=150)
+        col3.image(logo_image1, width=150)
+    
         st.header("Kalkulator Perbelanjaan 🌟")
         st.markdown(
             """
