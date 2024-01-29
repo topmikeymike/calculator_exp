@@ -36,6 +36,9 @@ def main_content():
     
     # Create a dictionary to map items to coefficients
     default_feature = 0.0
+
+    # Default value before user input
+    exp_selected_coefficient = 0.00
     
     # # # Display data_model
     # st.write("Data Model:")
@@ -212,9 +215,6 @@ def main_content():
     # Exponentiate the coefficient
     exp_selected_coefficient = np.exp(round(sum_coefficient, 12))
     # st.write("Sum :", round(exp_selected_coefficient, 12))
-
-    # Default value before user input
-    exp_selected_coefficient = 0.00
     
     # Display the exponentiated coefficient for the selected_daerah
     st.write(f"Predicted Expenditure for Household (RM): {round(exp_selected_coefficient, 2)}")
