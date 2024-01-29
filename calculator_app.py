@@ -134,13 +134,21 @@ def main_content():
     # coefficient_bil_oku = -0.090 
     # coefficient_hh_income = 0.0000370972249842198
     
-    # Declare coefficient
-    coefficient_bil_ir = item_coeff_dict.get('Bil IR', default_feature)
-    coefficient_kanak2 = item_coeff_dict.get('Bil Kanak-kanak', default_feature)
-    coefficient_warga_emas = item_coeff_dict.get('Bil Warga Emas', default_feature)
-    coefficient_oku = item_coeff_dict.get('Bil OKU', default_feature)
-    coefficient_hh_income = item_coeff_dict.get('HH_Income', default_feature)
-    constant_term = item_coeff_dict.get('Constant', default_feature)
+    # # Declare coefficient
+    # coefficient_bil_ir = item_coeff_dict.get('Bil IR', default_feature)
+    # coefficient_kanak2 = item_coeff_dict.get('Bil Kanak-kanak', default_feature)
+    # coefficient_warga_emas = item_coeff_dict.get('Bil Warga Emas', default_feature)
+    # coefficient_oku = item_coeff_dict.get('Bil OKU', default_feature)
+    # coefficient_hh_income = item_coeff_dict.get('HH_Income', default_feature)
+    # constant_term = item_coeff_dict.get('Constant', default_feature)
+    
+    # # Declare coefficient with 12 decimal points
+    coefficient_bil_ir = round(item_coeff_dict.get('Bil IR', default_feature), 12)
+    coefficient_kanak2 = round(item_coeff_dict.get('Bil Kanak-kanak', default_feature), 12)
+    coefficient_warga_emas = round(item_coeff_dict.get('Bil Warga Emas', default_feature), 12)
+    coefficient_oku = round(item_coeff_dict.get('Bil OKU', default_feature), 12)
+    coefficient_hh_income = round(item_coeff_dict.get('HH_Income', default_feature), 12)
+    constant_term = round(item_coeff_dict.get('Constant', default_feature), 12)
     
 
     
@@ -162,8 +170,12 @@ def main_content():
     st.write("Coefficient for Bil Kanak-kanak:", round(coefficient_kanak2, 12))
 
     user_input_hh_income = st.number_input("Pendapatan Isi Rumah:", value=0.0, step=0.01, format="%.2f", min_value=0.0)
-    coefficient_hh_income= coefficient_hh_income * user_input_hh_income
-    st.write("Coefficient for Household Income:", round(coefficient_hh_income, 12))
+    # Calculate the natural logarithm (ln) of the user input
+    ln_user_input_hh_income = np.log(user_input_hh_income) if user_input_hh_income > 0 else 0.0
+    ln_coefficient_hh_income = coefficient_hh_income * ln_user_input_hh_income
+    # coefficient_hh_income= coefficient_hh_income * user_input_hh_income
+    st.write("User Input for LN Household Income:", round(ln_user_input_hh_income, 12))
+    st.write("Coefficient for LN Household Income:", round(ln_coefficient_hh_income, 12))
 
     # Coefficients for the selected features
     coefficient_daerah = item_coeff_dict.get(selected_daerah, default_feature)
@@ -177,17 +189,18 @@ def main_content():
         round(constant_term ,12)+
         round(coefficient_daerah,12) + round(coefficient_strata,12) + round(coefficient_jantina, 12) + round(coefficient_etnik, 12) + 
         round(coefficient_bil_ir, 12)+ round(coefficient_oku, 12) + round(coefficient_warga_emas, 12) + round(coefficient_kanak2, 12) +
-        round(coefficient_hh_income, 12)
+        round(ln_coefficient_hh_income, 12)
     )
     
     # Display the Coefficient CONSTANT
-    st.write("Coefficient Constant", constant_term)
+    st.write("Coefficient Constant", round(constant_term, 12))
     
     # Display the calculated regression formula
     st.write("Sum of Coefficient:", round(sum_coefficient, 12))
     
     # Exponentiate the coefficient
     exp_selected_coefficient = np.exp(round(sum_coefficient, 12))
+    st.write("Sum :", round(exp_selected_coefficient, 12))
 
     # Display the exponentiated coefficient for the selected_daerah
     st.write(f"Predicted Expenditure for Household (RM): {round(exp_selected_coefficient, 2)}")
@@ -195,8 +208,9 @@ def main_content():
     # Calculate e raised to the power of sum_coefficient
     result = math.exp(sum_coefficient)
 
-    # Display the result
-    # st.write(f"e^{sum_coefficient} = {result}")
+    # Display the result with 12 decimal points
+    formatted_result = round(result, 12)
+    st.write(f"e^{sum_coefficient} = {formatted_result}")
 
     
 def footer():
