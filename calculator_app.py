@@ -10,7 +10,18 @@ def load_data(file_path):
 
 
 def header():
-    st.title("Expenditure Calculator")
+    st.title("Expenditure Calculator 🧮")
+    st.markdown(
+        """
+        <div style="text-align: justify; font-size: 18px; line-height: 1.5; color: #333333;">
+            <p>Feeling the pinch in the middle of the month?</p>
+            <p>Wondering how your monthly expenses should look?</p>
+            <p>Introducing the Expenditure Prediction Calculator.</p>
+            <p>Let our AI model calculate your expenses based on your inputs.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 def main_content():
