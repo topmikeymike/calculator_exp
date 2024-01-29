@@ -36,9 +36,6 @@ def main_content():
     
     # Create a dictionary to map items to coefficients
     default_feature = 0.0
-
-    # Default value before user input
-    exp_selected_coefficient = 0.00
     
     # # # Display data_model
     # st.write("Data Model:")
