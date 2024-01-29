@@ -42,12 +42,12 @@ def main_content():
     # st.dataframe(data_model)
     
     # Display the options in a single-select dropdown for Negeri
-    selected_negeri = st.selectbox("Select Negeri", ["Selangor"] + list(data_negeri_daerah['NEGERI'].unique()))
+    selected_negeri = st.selectbox("Negeri", ["Selangor"] + list(data_negeri_daerah['NEGERI'].unique()))
 
 
     # Filter Daerah options based on selected Negeri
     daerah_options = list(data_negeri_daerah[data_negeri_daerah['NEGERI'] == selected_negeri]['DAERAH'].unique())
-    selected_daerah = st.selectbox("Select Daerah", [""] + daerah_options)
+    selected_daerah = st.selectbox("Daerah", [""] + daerah_options)
 
     # daerah_coeff_dict = dict(zip(daerah_list, coefficients))
     item_coeff_dict = dict(zip(data_model['Item'], data_model['Coefficient']))
@@ -66,7 +66,7 @@ def main_content():
 
     
     # Display the options in a single-select dropdown for Strata
-    selected_strata = st.selectbox("Select Strata", ["Bandar"] + list(data_negeri_daerah['STRATA'].dropna().unique()))
+    selected_strata = st.selectbox("Strata", ["Bandar"] + list(data_negeri_daerah['STRATA'].dropna().unique()))
     
      # Handle Bandar as a special case
     if selected_strata == "Bandar":
@@ -213,6 +213,9 @@ def main_content():
     exp_selected_coefficient = np.exp(round(sum_coefficient, 12))
     # st.write("Sum :", round(exp_selected_coefficient, 12))
 
+    # Default value before user input
+    exp_selected_coefficient = 0.00
+    
     # Display the exponentiated coefficient for the selected_daerah
     st.write(f"Predicted Expenditure for Household (RM): {round(exp_selected_coefficient, 2)}")
     
