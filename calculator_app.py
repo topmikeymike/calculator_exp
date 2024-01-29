@@ -55,7 +55,7 @@ def get_language_dict(selected_language):
             "input_bil_wargaEmas": "Bilangan Warga Emas:",
             "input_bil_kanak2": "Bilangan Kanak-Kanak:",
             "input_hh_income": "Pendapatan Isi Rumah:",
-            "predicted_expenditure": "Perbelanjaan Yang Diramalkan untuk Isi Rumah (RM):"
+            "predicted_expenditure": "Jangkaan Perbelanjaan untuk Isi Rumah (RM):"
         }
     
     return language
