@@ -51,7 +51,7 @@ def main_content():
         selected_coefficient = item_coeff_dict.get(selected_daerah, default_feature)
 
     # Display the coefficient for the selected Daerah
-    st.write(f"Coefficient for {selected_daerah}: {round(selected_coefficient, 12)}") 
+    # st.write(f"Coefficient for {selected_daerah}: {round(selected_coefficient, 12)}") 
 
     
     # Display the options in a single-select dropdown for Strata
@@ -66,7 +66,7 @@ def main_content():
         selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
 
     # Display the coefficient for the selected Daerah
-    st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
+    # st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
     
     # Display the options in a single-select dropdown for Jantina
     selected_jantina = st.selectbox("Jantina KIR(Ketua Isi Rumah)", ["Lelaki"] + list(data_negeri_daerah['JANTINA'].dropna().unique()))
@@ -80,7 +80,7 @@ def main_content():
         selected_coefficient = item_coeff_dict.get(selected_jantina, default_feature)
 
     # Display the coefficient for the selected Daerah
-    st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
+    # st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
     
     # Display the options in a single-select dropdown for Etnik
     selected_etnik = st.selectbox("Etnik KIR(Ketua Isi Rumah)", ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
@@ -94,7 +94,7 @@ def main_content():
         selected_coefficient = item_coeff_dict.get(selected_etnik, default_feature)
 
     # Display the coefficient for the selected Daerah
-    st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}") 
+    # st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}") 
 
     # # Get user input for an integer
     # user_input_bil_air = st.number_input("Bilangan Isi Rumah:", key="bil_air", value=0, step=1)
@@ -155,27 +155,27 @@ def main_content():
    # Get user input for an integer
     user_input_bil_air = st.number_input("Bilangan Isi Rumah:", value=0, step=1, min_value=0)
     coefficient_bil_ir= coefficient_bil_ir * user_input_bil_air
-    st.write("Coefficient for Bil IR:", round(coefficient_bil_ir, 12))
+    # st.write("Coefficient for Bil IR:", round(coefficient_bil_ir, 12))
     
     user_input_bil_oku = st.number_input("Bilangan OKU:", value=0, step=1, min_value=0, max_value=user_input_bil_air)
     coefficient_oku= coefficient_oku * user_input_bil_oku
-    st.write("Coefficient for Bil OKU:", round(coefficient_oku, 12))
+    # st.write("Coefficient for Bil OKU:", round(coefficient_oku, 12))
 
     user_input_bil_wargaEmas = st.number_input("Bilangan Warga Emas:", value=0, step=1, min_value=0, max_value=user_input_bil_air - user_input_bil_oku)
     coefficient_warga_emas= coefficient_warga_emas * user_input_bil_wargaEmas
-    st.write("Coefficient for Bil Warga Emas:", round(coefficient_warga_emas, 12))
+    # st.write("Coefficient for Bil Warga Emas:", round(coefficient_warga_emas, 12))
 
     user_input_bil_kanak2 = st.number_input("Bilangan Kanak-Kanak:", value=0, step=1, min_value=0, max_value=user_input_bil_air - user_input_bil_oku - user_input_bil_wargaEmas)
     coefficient_kanak2= coefficient_kanak2 * user_input_bil_kanak2
-    st.write("Coefficient for Bil Kanak-kanak:", round(coefficient_kanak2, 12))
+    # st.write("Coefficient for Bil Kanak-kanak:", round(coefficient_kanak2, 12))
 
     user_input_hh_income = st.number_input("Pendapatan Isi Rumah:", value=0.0, step=0.01, format="%.2f", min_value=0.0)
     # Calculate the natural logarithm (ln) of the user input
     ln_user_input_hh_income = np.log(user_input_hh_income) if user_input_hh_income > 0 else 0.0
     ln_coefficient_hh_income = coefficient_hh_income * ln_user_input_hh_income
     # coefficient_hh_income= coefficient_hh_income * user_input_hh_income
-    st.write("User Input for LN Household Income:", round(ln_user_input_hh_income, 12))
-    st.write("Coefficient for LN Household Income:", round(ln_coefficient_hh_income, 12))
+    # st.write("User Input for LN Household Income:", round(ln_user_input_hh_income, 12))
+    # st.write("Coefficient for LN Household Income:", round(ln_coefficient_hh_income, 12))
 
     # Coefficients for the selected features
     coefficient_daerah = item_coeff_dict.get(selected_daerah, default_feature)
@@ -193,14 +193,14 @@ def main_content():
     )
     
     # Display the Coefficient CONSTANT
-    st.write("Coefficient Constant", round(constant_term, 12))
+    # st.write("Coefficient Constant", round(constant_term, 12))
     
     # Display the calculated regression formula
-    st.write("Sum of Coefficient:", round(sum_coefficient, 12))
+    # st.write("Sum of Coefficient:", round(sum_coefficient, 12))
     
     # Exponentiate the coefficient
     exp_selected_coefficient = np.exp(round(sum_coefficient, 12))
-    st.write("Sum :", round(exp_selected_coefficient, 12))
+    # st.write("Sum :", round(exp_selected_coefficient, 12))
 
     # Display the exponentiated coefficient for the selected_daerah
     st.write(f"Predicted Expenditure for Household (RM): {round(exp_selected_coefficient, 2)}")
@@ -210,7 +210,7 @@ def main_content():
 
     # Display the result with 12 decimal points
     formatted_result = round(result, 12)
-    st.write(f"e^{sum_coefficient} = {formatted_result}")
+    # st.write(f"e^{sum_coefficient} = {formatted_result}")
 
     
 def footer():
