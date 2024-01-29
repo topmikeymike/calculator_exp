@@ -313,12 +313,6 @@ def main_content(language_dict):
         unsafe_allow_html=True
     )
     
- 
-
-    # Display the percentage
-    st.write(f"Percentage of Predicted Expenditure over Income: {round(percentage_predicted_over_income, 2)}%")
-
-
     st.markdown(
         f"""
         <div style="text-align:left;">
