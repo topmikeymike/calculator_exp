@@ -88,8 +88,8 @@ def get_language_dict(selected_language):
             "select_negeri": "Select State",
             "select_daerah": "Select District",
             "select_strata": "Select Strata",
-            "select_jantina": "Select Gender",
-            "select_etnik": "Select Ethnicity",
+            "select_jantina": "Select Sex",
+            "select_etnik": "Select Ethnic",
             "input_bil_air": "Number of Households:",
             "input_bil_oku": "Number of Persons With Disabilities (PWD):",
             "input_bil_wargaEmas": "Number of Senior Citizens(Age = 60 above):",
@@ -172,61 +172,58 @@ def main_content(language_dict):
     # daerah_coeff_dict = dict(zip(daerah_list, coefficients))
     item_coeff_dict = dict(zip(data_model['Item'], data_model['Coefficient']))
     data_model['Coefficient'] = round(data_model['Coefficient'], 12)
-    # Handle Petaling as a special case
-    if selected_daerah == "Petaling":
-        # Set all feature values to 0 for Petaling
-        selected_coefficient = default_feature
+
+    # Set default selected coefficient
+    selected_coefficient = default_feature
+
+    # Check if selected Negeri and Daerah are W.P. KUALA LUMPUR or W.P. PUTRAJAYA
+    if selected_negeri in ["WP Kuala Lumpur", "WP Putrajaya"] and selected_daerah in ["W.P. KUALA LUMPUR", "W.P. PUTRAJAYA"]:
+        # Display the options in a single-select dropdown for Strata restricted to "Bandar"
+        selected_strata = st.selectbox(language_dict["select_strata"], ["Bandar"])
+
+        # Use the selected Daerah to get its coefficient if it's "Bandar"
+        if selected_strata == "Bandar":
+            selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
 
     else:
-        # Use the selected Daerah to get its coefficient
-        selected_coefficient = item_coeff_dict.get(selected_daerah, default_feature)
-
-    # Display the coefficient for the selected Daerah
-    # st.write(f"Coefficient for {selected_daerah}: {round(selected_coefficient, 12)}") 
-
-    
-    # Display the options in a single-select dropdown for Strata
-    selected_strata = st.selectbox(language_dict["select_strata"], ["Bandar"] + list(data_negeri_daerah['STRATA'].dropna().unique()))
-    
-     # Handle Bandar as a special case
-    if selected_strata == "Bandar":
-        # Set all feature values to 0 for Bandar
-        selected_coefficient = default_feature
-    else:
+        # Display the options in a single-select dropdown for Strata with all available options
+        selected_strata = st.selectbox(language_dict["select_strata"], ["Bandar"] + list(data_negeri_daerah['STRATA'].dropna().unique()))
+        
         # Use the selected Daerah to get its coefficient
         selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
 
     # Display the coefficient for the selected Daerah
     # st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    st.header(language_dict["step_2"])
-    st.write(language_dict["detail_step2"])
-    # Display the options in a single-select dropdown for Jantina
-    selected_jantina = st.selectbox(language_dict["select_jantina"], ["Lelaki"] + list(data_negeri_daerah['JANTINA'].dropna().unique()))
-    
-     # Handle Bandar as a special case
-    if selected_jantina == "Lelaki":
-        # Set all feature values to 0 for Bandar
-        selected_coefficient = default_feature
-    else:
-        # Use the selected Daerah to get its coefficient
-        selected_coefficient = item_coeff_dict.get(selected_jantina, default_feature)
 
-    # Display the coefficient for the selected Daerah
-    # st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
-    
-    # Display the options in a single-select dropdown for Etnik
-    selected_etnik = st.selectbox(language_dict["select_etnik"], ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
-    
-    # Handle Bandar as a special case
-    if selected_etnik == "Melayu":
-        # Set all feature values to 0 for Bandar
-        selected_coefficient = default_feature
-    else:
-        # Use the selected Daerah to get its coefficient
-        selected_coefficient = item_coeff_dict.get(selected_etnik, default_feature)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        st.header(language_dict["step_2"])
+        st.write(language_dict["detail_step2"])
+        # Display the options in a single-select dropdown for Jantina
+        selected_jantina = st.selectbox(language_dict["select_jantina"], ["Lelaki"] + list(data_negeri_daerah['JANTINA'].dropna().unique()))
+        
+        # Handle Bandar as a special case
+        if selected_jantina == "Lelaki":
+            # Set all feature values to 0 for Bandar
+            selected_coefficient = default_feature
+        else:
+            # Use the selected Daerah to get its coefficient
+            selected_coefficient = item_coeff_dict.get(selected_jantina, default_feature)
+
+        # Display the coefficient for the selected Daerah
+        # st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
+        
+        # Display the options in a single-select dropdown for Etnik
+        selected_etnik = st.selectbox(language_dict["select_etnik"], ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
+        
+        # Handle Bandar as a special case
+        if selected_etnik == "Melayu":
+            # Set all feature values to 0 for Bandar
+            selected_coefficient = default_feature
+        else:
+            # Use the selected Daerah to get its coefficient
+            selected_coefficient = item_coeff_dict.get(selected_etnik, default_feature)
 
     # Display the coefficient for the selected Daerah
     # st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}") 
@@ -350,4 +347,3 @@ def footer(language_dict):
         """,
         unsafe_allow_html=True
     )
-
