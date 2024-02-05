@@ -193,7 +193,7 @@ def main_content(language_dict):
         selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
 
     # Display the coefficient for the selected Daerah
-    # st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
+     st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
 
         
     st.markdown("<br>", unsafe_allow_html=True)
@@ -212,7 +212,7 @@ def main_content(language_dict):
         selected_coefficient = item_coeff_dict.get(selected_jantina, default_feature)
 
     # Display the coefficient for the selected Daerah
-    # st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
+     st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
     
     # Display the options in a single-select dropdown for Etnik
     selected_etnik = st.selectbox(language_dict["select_etnik"], ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
@@ -226,7 +226,8 @@ def main_content(language_dict):
         selected_coefficient = item_coeff_dict.get(selected_etnik, default_feature)
 
     # Display the coefficient for the selected Daerah
-    # st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}") 
+     st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}") 
+
     st.markdown("<br>", unsafe_allow_html=True)
     
     #declare coefficient hhincome
