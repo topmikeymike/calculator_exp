@@ -100,7 +100,7 @@ def get_language_dict(selected_language):
             "step_1": "Step 1: Your Location",
             "detail_step1": "Select the state you are currently residing in and whether it is in an urban or rural area",
             "step_2": "Step 2: Head of Household Information",
-            "detail_step2": "Select your Gender and Ethnicity",
+            "detail_step2": "Select your Gender and Ethnic",
             "step_3": "Step 3: Your Household Income",
             "detail_step3": "Enter your total monthly income of all your household members. This includes income from rent, investments or other transfers.",
             "step_4": "Step 4: Your Household Information",
