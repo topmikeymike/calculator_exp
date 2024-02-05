@@ -85,61 +85,78 @@ def select_language():
 def get_language_dict(selected_language):
     if selected_language == "English":
         language = {
-            "select_negeri": "Select State",
-            "select_daerah": "Select District",
-            "select_strata": "Select Strata",
-            "select_jantina": "Select Sex",
-            "select_etnik": "Select Ethnic",
+            "select_negeri": "State",
+            "select_daerah": "District",
+            "select_strata": "Strata",
+            "select_jantina": "Sex",
+            "select_etnik": "Ethnic",
             "input_bil_air": "Number of Households:",
             "input_bil_oku": "Number of Persons With Disabilities (PWD):",
-            "input_bil_wargaEmas": "Number of Senior Citizens(Age = 60 above):",
-            "input_bil_kanak2": "Number of Children(Age = 17 below):",
-            "input_hh_income": "Household Income:",
+            "input_bil_wargaEmas": "Number of Senior Citizens (Age = 60 above):",
+            "input_bil_kanak2": "Number of Children (Age = 17 below):",
+            "input_hh_income": "Household Gross Income:",
             "predicted_expenditure": "Predicted Expenditure for Household (RM):",
             "percentage": "Percentage of Predicted Expenditure over Income:", 
             "step_1": "Step 1: Your Location",
             "detail_step1": "Select the state you are currently residing in and whether it is in an urban or rural area",
             "step_2": "Step 2: Head of Household Information",
-            "detail_step2": "Select your Gender and Ethnic",
-            "step_3": "Step 3: Your Household Income",
-            "detail_step3": "Enter your total monthly income of all your household members. This includes income from rent, investments or other transfers.",
+            "detail_step2": "Select your Gender and Ethnicity",
+            "step_3": "Step 3: Your Household Gross Income",
+            "detail_step3": "Enter your total gross monthly income of all your household members. This includes income from rent, investments or other transfers.",
             "step_4": "Step 4: Your Household Information",
-            "detail_step4": "Enter your number of household as well as the number of elderly people, the number of children and the number of disabled people.",
+            "detail_step4": "Enter your number of household as well as the number of elderly people, the number of children, and the number of disabled people.",
             "footer": "Copyright © 2024 Team Usecase. All rights reserved",
             "footer2": "Copyright © 2024 Michael/Khairul. All rights reserved",
             "sumber": "Source:",
-            "source": "Department of Statistics Malaysia, Household Income and Expenditure Survey (HIES) 2022"
+            "source": "Department of Statistics Malaysia, Household Income and Expenditure Survey (HIES) 2022",
+            "Bandar": "Urban",
+            "Luar bandar": "Rural",
+            "Lelaki": "Male",
+            "Perempuan": "Female",
+            "Melayu": "Malay",
+            "Cina": "Chinese",
+            "India": "Indian",
+            "Lain-lain": "Others"
         }
     else:
         # Default to Malay if language is not English
         language = {
-            "select_negeri": "Pilih Negeri",
-            "select_daerah": "Pilih Daerah",
-            "select_strata": "Pilih Strata",
-            "select_jantina": "Pilih Jantina",
-            "select_etnik": "Pilih Etnik",
+            "select_negeri": "Negeri",
+            "select_daerah": "Daerah",
+            "select_strata": "Strata",
+            "select_jantina": "Jantina",
+            "select_etnik": "Etnik",
             "input_bil_air": "Bilangan Isi Rumah:",
             "input_bil_oku": "Bilangan Orang Kurang Upaya (OKU):",
-            "input_bil_wargaEmas": "Bilangan Warga Emas(Umur = 60 Ke atas):",
-            "input_bil_kanak2": "Bilangan Kanak-Kanak(Umur = 17 Ke bawah):",
-            "input_hh_income": "Pendapatan Isi Rumah:",
+            "input_bil_wargaEmas": "Bilangan Warga Emas (Umur = 60 Ke atas):",
+            "input_bil_kanak2": "Bilangan Kanak-Kanak (Umur = 17 Ke bawah):",
+            "input_hh_income": "Pendapatan Kasar Isi Rumah:",
             "predicted_expenditure": "Perbelanjaan Yang Dijangkakan untuk Isi Rumah Anda ialah:",
             "percentage": "Peratusan Perbelanjaan Jangkaan terhadap Pendapatan:", 
             "step_1": "Langkah 1: Lokasi Anda",
-    	    "detail_step1": "Sila pilih Daerah tempat tinggal anda dan sama ada Bandar atau Luar Bandar.",
+            "detail_step1": "Sila pilih Daerah tempat tinggal anda dan sama ada Bandar atau Luar Bandar.",
             "step_2": "Langkah 2: Maklumat Ketua Isi Rumah",
-    	    "detail_step2": "Sila pilih Jantina dan Etnik Anda.", 
-            "step_3": "Langkah 3: Pendapatan Isi Rumah Anda",
-    	    "detail_step3": "Sila masukkan jumlah pendapatan bulanan semua ahli isi rumah anda. Ini termasuk pendapatan daripada sewa, pelaburan atau pindahan lain.", 
+            "detail_step2": "Sila pilih Jantina dan Etnik Anda.", 
+            "step_3": "Langkah 3: Pendapatan Kasar Isi Rumah Anda",
+            "detail_step3": "Sila masukkan jumlah pendapatan kasar bulanan semua ahli isi rumah anda. Ini termasuk pendapatan daripada sewa, pelaburan atau pindahan lain.", 
             "step_4": "Langkah 4: Maklumat Isi Rumah Anda",
-    	    "detail_step4": "Sila masukkan bilangan isi rumah Anda serta bilangan warga emas, bilangan kanak-kanak dan bilangan OKU.",
+            "detail_step4": "Sila masukkan bilangan isi rumah Anda serta bilangan warga emas, bilangan kanak-kanak, dan bilangan OKU.",
             "footer": "Hakcipta © 2024 Team Usecase. Hakcipta terpelihara",
             "footer2": "Hakcipta © 2024 Michael/Khairul. Hakcipta terpelihara",
             "sumber": "Sumber:",
-            "source": "Jabatan Perangkaan Malaysia, Survei Pendapatan dan Perbelanjaan Isi Rumah (HIES) 2022 "
+            "source": "Jabatan Perangkaan Malaysia, Survei Pendapatan dan Perbelanjaan Isi Rumah (HIES) 2022",
+            "Bandar": "Bandar",
+            "Luar bandar": "Luar bandar",
+            "Lelaki": "Lelaki",
+            "Perempuan": "Perempuan",
+            "Melayu": "Melayu",
+            "Cina": "Cina",
+            "India": "India",
+            "Lain-lain": "Lain-lain"
          }
     
     return language
+
 
 
 def main_content(language_dict):
@@ -179,55 +196,113 @@ def main_content(language_dict):
     # Check if selected Negeri and Daerah are W.P. KUALA LUMPUR or W.P. PUTRAJAYA
     if selected_negeri in ["W.P. KUALA LUMPUR", "W.P. PUTRAJAYA"] and selected_daerah in ["W.P. KUALA LUMPUR", "W.P. PUTRAJAYA"]:
         # Display the options in a single-select dropdown for Strata restricted to "Bandar"
-        selected_strata = st.selectbox(language_dict["select_strata"], ["Bandar"])
+        selected_strata = st.selectbox(language_dict["select_strata"], language_dict["Bandar"])
+        
 
         # Use the selected Daerah to get its coefficient if it's "Bandar"
         if selected_strata == "Bandar":
-            selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
+            selected_coefficient = default_feature
 
     else:
         # Display the options in a single-select dropdown for Strata with all available options
-        selected_strata = st.selectbox(language_dict["select_strata"], ["Bandar"] + list(data_negeri_daerah['STRATA'].dropna().unique()))
+        selected_strata = st.selectbox(language_dict["select_strata"], [language_dict["Bandar"], language_dict["Luar bandar"]] )
         
         # Use the selected Daerah to get its coefficient
         selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
 
     # Display the coefficient for the selected Daerah
-    st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
+    # st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
+    
+    ############################################################################################################
+    
+    # # Check if selected Negeri and Daerah are W.P. KUALA LUMPUR or W.P. PUTRAJAYA
+    # if selected_negeri in ["W.P. KUALA LUMPUR", "W.P. PUTRAJAYA"] and selected_daerah in ["W.P. KUALA LUMPUR", "W.P. PUTRAJAYA"]:
+    #     # Display the options in a single-select dropdown for Strata restricted to "Bandar"
+    #     selected_strata = st.selectbox(language_dict["select_strata"], ["Bandar"])
+        
+
+    #     # Use the selected Daerah to get its coefficient if it's "Bandar"
+    #     if selected_strata == "Bandar":
+    #         selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
+
+    # else:
+    #     # Display the options in a single-select dropdown for Strata with all available options
+    #     selected_strata = st.selectbox(language_dict["select_strata"], ["Bandar"] + list(data_negeri_daerah['STRATA'].dropna().unique()))
+        
+    #     # Use the selected Daerah to get its coefficient
+    #     selected_coefficient = item_coeff_dict.get(selected_strata, default_feature)
+
+    # # Display the coefficient for the selected Daerah
+    # st.write(f"Coefficient for {selected_strata}: {round(selected_coefficient, 12)}") 
 
         
     st.markdown("<br>", unsafe_allow_html=True)
         
     st.header(language_dict["step_2"])
     st.write(language_dict["detail_step2"])
-    # Display the options in a single-select dropdown for Jantina
-    selected_jantina = st.selectbox(language_dict["select_jantina"], ["Lelaki"] + list(data_negeri_daerah['JANTINA'].dropna().unique()))
     
-    # Handle Bandar as a special case
-    if selected_jantina == "Lelaki":
-        # Set all feature values to 0 for Bandar
+    # Display the options in a single-select dropdown for Jantina
+    selected_jantina = st.selectbox(language_dict["select_jantina"], [language_dict["Lelaki"], language_dict["Perempuan"]] )
+
+    # Handle Lelaki and Perempuan as special cases
+    if selected_jantina == language_dict["Lelaki"]:
+        # Set all feature values to 0 for Lelaki and Perempuan
         selected_coefficient = default_feature
     else:
-        # Use the selected Daerah to get its coefficient
+        # Use the selected Jantina to get its coefficient
         selected_coefficient = item_coeff_dict.get(selected_jantina, default_feature)
 
-    # Display the coefficient for the selected Daerah
-    st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
+    # Display the coefficient for the selected Jantina
+    # st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}")
+
+    ###################################################################################
+    
+    # # Display the options in a single-select dropdown for Jantina
+    # selected_jantina = st.selectbox(language_dict["select_jantina"], ["Lelaki"] + list(data_negeri_daerah['JANTINA'].dropna().unique()))
+    
+    # # Handle Bandar as a special case
+    # if selected_jantina == "Lelaki":
+    #     # Set all feature values to 0 for Bandar
+    #     selected_coefficient = default_feature
+    # else:
+    #     # Use the selected Daerah to get its coefficient
+    #     selected_coefficient = item_coeff_dict.get(selected_jantina, default_feature)
+
+    # # Display the coefficient for the selected Daerah
+    # # st.write(f"Coefficient for {selected_jantina}: {round(selected_coefficient, 12)}") 
     
     # Display the options in a single-select dropdown for Etnik
-    selected_etnik = st.selectbox(language_dict["select_etnik"], ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
-    
-    # Handle Bandar as a special case
-    if selected_etnik == "Melayu":
-        # Set all feature values to 0 for Bandar
+    selected_etnik = st.selectbox(language_dict["select_etnik"], [language_dict["Melayu"], language_dict["Cina"], language_dict["India"], language_dict["Lain-lain"]] )
+
+    # Handle special case for Melayu
+    if selected_etnik == language_dict["Melayu"]:
+        # Set selected_coefficient to default_feature for Melayu
         selected_coefficient = default_feature
     else:
-        # Use the selected Daerah to get its coefficient
+        # Use the selected Etnik to get its coefficient
         selected_coefficient = item_coeff_dict.get(selected_etnik, default_feature)
 
-    # Display the coefficient for the selected Daerah
-    st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}") 
+    # Display the coefficient for the selected Etnik
+    # st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}")
 
+    
+    #####################################################################################
+    
+    # # Display the options in a single-select dropdown for Etnik
+    # selected_etnik = st.selectbox(language_dict["select_etnik"], ["Melayu"] + list(data_negeri_daerah['KUMP_ETNIK'].dropna().unique()))
+    
+    # # Handle Bandar as a special case
+    # if selected_etnik == "Melayu":
+    #     # Set all feature values to 0 for Bandar
+    #     selected_coefficient = default_feature
+    # else:
+    #     # Use the selected Daerah to get its coefficient
+    #     selected_coefficient = item_coeff_dict.get(selected_etnik, default_feature)
+
+    # # Display the coefficient for the selected Daerah
+    # # st.write(f"Coefficient for {selected_etnik}: {round(selected_coefficient, 12)}") 
+    
+    
     st.markdown("<br>", unsafe_allow_html=True)
     
     #declare coefficient hhincome
@@ -235,7 +310,7 @@ def main_content(language_dict):
     
     st.header(language_dict["step_3"])
     st.write(language_dict["detail_step3"])
-    user_input_hh_income = st.number_input(language_dict["input_hh_income"], value=0.0, step=0.01, format="%.2f", min_value=0.0)
+    user_input_hh_income = st.number_input(language_dict["input_hh_income"], value=0.0, step=0.01, format="%.2f", min_value=0.0, max_value=999999.0)
     ln_user_input_hh_income = np.log(user_input_hh_income) if user_input_hh_income > 0 else 0.0
     ln_coefficient_hh_income = coefficient_hh_income * ln_user_input_hh_income
     # coefficient_hh_income= coefficient_hh_income * user_input_hh_income
