@@ -85,11 +85,11 @@ def select_language():
 def get_language_dict(selected_language):
     if selected_language == "English":
         language = {
-            "select_negeri": "State",
-            "select_daerah": "District",
-            "select_strata": "Strata",
-            "select_jantina": "Sex",
-            "select_etnik": "Ethnic",
+            "select_negeri": "State:",
+            "select_daerah": "District:",
+            "select_strata": "Strata:",
+            "select_jantina": "Sex:",
+            "select_etnik": "Ethnic:",
             "input_bil_air": "Number of Households:",
             "input_bil_oku": "Number of Persons With Disabilities (PWD):",
             "input_bil_wargaEmas": "Number of Senior Citizens (Age = 60 above):",
@@ -121,11 +121,11 @@ def get_language_dict(selected_language):
     else:
         # Default to Malay if language is not English
         language = {
-            "select_negeri": "Negeri",
-            "select_daerah": "Daerah",
-            "select_strata": "Strata",
-            "select_jantina": "Jantina",
-            "select_etnik": "Etnik",
+            "select_negeri": "Negeri:",
+            "select_daerah": "Daerah:",
+            "select_strata": "Strata:",
+            "select_jantina": "Jantina:",
+            "select_etnik": "Etnik:",
             "input_bil_air": "Bilangan Isi Rumah:",
             "input_bil_oku": "Bilangan Orang Kurang Upaya (OKU):",
             "input_bil_wargaEmas": "Bilangan Warga Emas (Umur = 60 Ke atas):",
