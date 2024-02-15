@@ -90,7 +90,7 @@ def get_language_dict(selected_language):
             "select_strata": "Strata",
             "select_jantina": "Sex",
             "select_etnik": "Ethnic",
-            "input_bil_air": "Number of Households:",
+            "input_bil_air": "Members of Households:",
             "input_bil_oku": "Number of Persons With Disabilities (PWD):",
             "input_bil_wargaEmas": "Number of Senior Citizens (Age = 60 above):",
             "input_bil_kanak2": "Number of Children (Age = 17 below):",
@@ -126,7 +126,7 @@ def get_language_dict(selected_language):
             "select_strata": "Strata",
             "select_jantina": "Jantina",
             "select_etnik": "Etnik",
-            "input_bil_air": "Bilangan Isi Rumah:",
+            "input_bil_air": "Bilangan Ahli Isi Rumah:",
             "input_bil_oku": "Bilangan Orang Kurang Upaya (OKU):",
             "input_bil_wargaEmas": "Bilangan Warga Emas (Umur = 60 Ke atas):",
             "input_bil_kanak2": "Bilangan Kanak-Kanak (Umur = 17 Ke bawah):",
@@ -377,15 +377,27 @@ def main_content(language_dict):
     percentage_predicted_over_income = (exp_selected_coefficient / user_input_hh_income) * 100
 
     # Display the exponentiated coefficient for the selected_daerah
-    st.write(
-        f"""
-        <p style='font-size: 20px; font-weight: bold;'>{language_dict['predicted_expenditure']}</p>
-        <p style='font-size: 24px; font-weight: bold; color: darkblue;'>RM {round(exp_selected_coefficient, 2)}</p>
-        <p style='font-size: 20px; font-weight: bold;'>{language_dict['percentage']}</p>
-        <p style='font-size: 24px; font-weight: bold; color: darkblue;'> {round(percentage_predicted_over_income, 2)}%</p>
-        """,
-        unsafe_allow_html=True
-    )
+    if ln_coefficient_hh_income == 0:
+        st.write(
+            f"""
+            <p style='font-size: 20px; font-weight: bold;'>{language_dict['predicted_expenditure']}</p>
+            <p style='font-size: 24px; font-weight: bold; color: darkblue;'>NA</p>
+            <p style='font-size: 20px; font-weight: bold;'>{language_dict['percentage']}</p>
+            <p style='font-size: 24px; font-weight: bold; color: darkblue;'>NA</p>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+        st.write(
+            f"""
+            <p style='font-size: 20px; font-weight: bold;'>{language_dict['predicted_expenditure']}</p>
+            <p style='font-size: 24px; font-weight: bold; color: darkblue;'>RM {round(exp_selected_coefficient, 2)}</p>
+            <p style='font-size: 20px; font-weight: bold;'>{language_dict['percentage']}</p>
+            <p style='font-size: 24px; font-weight: bold; color: darkblue;'> {round(percentage_predicted_over_income, 2)}%</p>
+            """,
+            unsafe_allow_html=True
+        )
+
     
     st.markdown(
         f"""
