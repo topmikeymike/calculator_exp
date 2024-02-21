@@ -102,7 +102,7 @@ def get_language_dict(selected_language):
             "step_2": "Step 2: Head of Household Information",
             "detail_step2": "Select your Gender and Ethnicity",
             "step_3": "Step 3: Household Gross Income",
-            "detail_step3": "Enter your total gross monthly income of all your household members.",
+            "detail_step3": "Enter your total gross monthly income of all your household members. This includes income from investments or other transfers.",
             "step_4": "Step 4: Household Information",
             "detail_step4": "Enter your number of household as well as the number of elderly people, the number of children, and the number of disabled people.",
             "footer": "Copyright © 2024 Team Usecase. All rights reserved",
