@@ -3,6 +3,11 @@ import pandas as pd
 import numpy as np
 import math
 
+st.set_page_config(
+    page_title="Expenditure Calculator",
+    page_icon="🧊",
+    initial_sidebar_state="expanded",
+)
 
 def load_data(file_path):
     data = pd.read_csv(file_path)
