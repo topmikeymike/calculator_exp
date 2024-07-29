@@ -9,6 +9,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+
 def load_data(file_path):
     data = pd.read_csv(file_path)
     return data
